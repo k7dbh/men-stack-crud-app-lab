@@ -8,9 +8,18 @@
 <!-- views/cars/new.ejs -->
 <body>
     <h1>Buy a Car</h1>
-    <a href=""></a>
+    <a href="/cars" class="cars-index-link">
+        <div class="index-link-text">back to cars</div>
+    </a>
     <form action="" method="post">
-        <label for="name">Cars Name:</label>
+        <label for="name">Car Name:</label>
+        <input type="text" name="name" id="name" required />
+
+        <label for="model">model:</label>
+        <input type="text" name="model" id="model" required />
+
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description">
     </form>
 </body>
 </html>
