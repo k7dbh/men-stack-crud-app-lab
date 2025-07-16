@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>Cars Index</title>
 </head>
 <body>
-    <h1>Hello world!</h1>
+  <h1>All Cars</h1>
+  <a href="/cars/new" class="add-cars">Add Car</a>
+
+  <ul>
+    <% allCars.forEach(car => { %>
+      <li>
+        <h2>
+          <a href="/cars/<%= car._id %>">
+            <%= car.name %>
+          </a>
+          <% if (car.isVerified) { %> ✅ <% } %>
+        </h2>
+        <p><strong>Category:</strong> <%= car.category %></p>
+        <p><strong>Description:</strong> <%= car.description %></p>
+        <p><strong>Location:</strong> <%= car.location %></p>
+        <p><strong>Phone:</strong> <%= car.phoneNumber %></p>
+        <% if (car.website) { %>
+          <p>
+            <strong>Website:</strong>
+            <a href="<%= car.website %>" target="_blank" rel="noopener noreferrer">
+              <%= car.website %>
+            </a>
+          </p>
+        <% } %>
+        <hr>
+      </li>
+    <% }) %>
+  </ul>
 </body>
 </html>

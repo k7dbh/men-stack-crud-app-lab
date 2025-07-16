@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title><%= foundCar.name %></title>
+</head>
+<body>
+  <h1><%= foundCar.name %></h1>
+  <% if (foundCar.isVerified) { %>
+    ✅ Verified
+  <% } %>
+
+  <p><strong>Description:</strong></p>
+  <p><%= foundCar.description %></p>
+
+  <p><strong>Phone:</strong> <%= foundCar.phoneNumber %></p>
+
+  <% if (foundCar.website) { %>
+    <p>
+      <strong>Website:</strong>
+      <a href="<%= foundCar.website %>" target="_blank" rel="noopener noreferrer">
+        <%= foundCar.website %>
+      </a>
+    </p>
+  <% } %>
+
+  <div class="actions">
+    <form action="/cars/<%= foundCar._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete <%= foundCar.name %></button>
+    </form>
+    <a class="edit-link" href="/cars/<%= foundCar._id %>/edit">
+      <div class="edit-text">Edit <%= foundCar.name %></div>
+    </a>
+  </div>
+
+  <a class="cars-index-link" href="/cars">
+    <div class="index-link-text">← Back to all Cars</div>
+  </a>
+</body>
+</html>

@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Car</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
-<!-- views/cars/new.ejs -->
 <body>
-    <h1>Buy a Car</h1>
-    <a href="/cars" class="cars-index-link">
-        <div class="index-link-text">back to cars</div>
-    </a>
-    <form action="" method="post">
-        <label for="name">Car Name:</label>
-        <input type="text" name="name" id="name" required />
+  <!-- views/cars/new.ejs -->
+  <h1>Add a New Car</h1>
+  <a href="/cars" class="cars-index-link">
+    <div class="index-link-text">← Back to Cars</div>
+  </a>
 
-        <label for="model">model:</label>
-        <input type="text" name="model" id="model" required />
+  <form action="/cars" method="POST">
+    <label for="name">Car Name:</label>
+    <input type="text" name="name" id="name" required />
 
-        <label for="description">Description:</label>
-        <input type="text" name="description" id="description">
-    </form>
+    <label for="model">Model:</label>
+    <input type="text" name="model" id="model" required />
+
+    <label for="description">Description:</label>
+    <textarea name="description" id="description" rows="4"></textarea>
+
+    <label for="phoneNumber">Phone Number:</label>
+    <input
+      type="tel"
+      name="phoneNumber"
+      id="phoneNumber"
+      placeholder="+973-1234-5678"
+    />
+
+    <label for="website">Website:</label>
+    <input
+      type="url"
+      name="website"
+      id="website"
+      placeholder="https://example.com"
+    />
+
+    <div class="checkbox-div">
+      <label for="isVerified">Verified Listing?</label>
+      <input type="checkbox" name="isVerified" id="isVerified" />
+    </div>
+
+    <button type="submit">Create Car</button>
+  </form>
 </body>
 </html>

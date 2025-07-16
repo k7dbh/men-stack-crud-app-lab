@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+
+  <title>Edit <%= foundCar.name %></title>
+</head>
+<body>
+  <h1>Edit <%= foundCar.name %></h1>
+
+  <form action="/cars/<%= foundCar._id %>?_method=PUT" method="POST">
+    <label for="name">Car Name:</label>
+    <input type="text" name="name" id="name" value="<%= foundCar.name %>" />
+
+    <label for="category">Category:</label>
+    <input type="text" name="category" id="category" value="<%= foundCar.category %>" />
+
+    <label for="description">Description:</label>
+    <textarea name="description" id="description" rows="4"><%= foundCar.description %></textarea>
+
+    <label for="location">Location:</label>
+    <input type="text" name="location" id="location" value="<%= foundCar.location %>" />
+
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="tel" name="phoneNumber" id="phoneNumber" value="<%= foundCar.phoneNumber %>" />
+
+    <label for="website">Website:</label>
+    <input type="url" name="website" id="website" value="<%= foundCar.website %>" />
+
+    <div class="checkbox-div">
+      <label for="isVerified">Verified Listing?</label>
+      <input
+        type="checkbox"
+        name="isVerified"
+        id="isVerified"
+        <%= foundCar.isVerified ? 'checked' : '' %>
+      />
+    </div>
+
+    <button type="submit">Update Car</button>
+  </form>
+</body>
+</html>
